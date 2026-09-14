@@ -61,19 +61,23 @@ go install github.com/ichijohodaka/symmatinv/cmd/symmatinv@latest
 
 ## コマンド
 
-```bash
-go build -o symmatinv ./cmd/symmatinv
+ビルドせずにそのまま走らせる。
 
-symmatinv show -n 3                 # 計算手順を人が読める形で表示
-symmatinv gen -n 6 -o inv6.go       # Go のソースに書き出す
-symmatinv gen -n 6 -lang json       # JSON に書き出す
-symmatinv verify -n 6 -exact        # 本当に逆行列になっているか検算
-symmatinv plan -n 8                 # 分け方の候補と演算回数を比べる
-symmatinv bench -n 6 -sets 1000000  # 方法1・2・3 の速さを比べる
+```bash
+go run ./cmd/symmatinv show -n 3                 # 計算手順を人が読める形で表示
+go run ./cmd/symmatinv gen -n 6 -o inv6.go       # Go のソースに書き出す
+go run ./cmd/symmatinv gen -n 6 -lang json       # JSON に書き出す
+go run ./cmd/symmatinv verify -n 6 -exact        # 本当に逆行列になっているか検算
+go run ./cmd/symmatinv plan -n 8                 # 分け方の候補と演算回数を比べる
+go run ./cmd/symmatinv bench -n 6 -sets 1000000  # 方法1・2・3 の速さを比べる
 ```
 
+`go install github.com/ichijohodaka/symmatinv/cmd/symmatinv@latest` で入れておけば、
+`symmatinv show -n 3` のように呼べる（`$(go env GOPATH)/bin` に PATH が
+通っていること）。
+
 `-plan "6=3+3[3=1+2,3=1+2]"` で分け方を指定できる。省略すると半分ずつ。
-`symmatinv show -n 3` の出力はこうなる。
+`show -n 3` の出力はこうなる。
 
 ```
 # 3 次対称行列の逆行列
