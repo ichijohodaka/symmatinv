@@ -1,5 +1,8 @@
 # symmatinv
 
+[![CI](https://github.com/ichijohodaka/symmatinv/actions/workflows/ci.yml/badge.svg)](https://github.com/ichijohodaka/symmatinv/actions/workflows/ci.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/ichijohodaka/symmatinv.svg)](https://pkg.go.dev/github.com/ichijohodaka/symmatinv)
+
 > Symbolic inverse of a symmetric matrix. The entries stay symbols; the result is a
 > straight-line program you can evaluate millions of times with different numbers.
 > Field-agnostic: the same program runs over float64, complex128, or exact rationals.
@@ -12,7 +15,21 @@
   あとは代入するだけ**にする。その際、同じ部分式を何度も計算しないよう、各段階の
   代入を最後まで持ち越さずに中間表現のまま保つ。
 
-- 外部依存なし。標準ライブラリだけで動く。
+- 外部依存なし。標準ライブラリだけで動く。Go 1.22 以上。
+
+## インストール
+
+ライブラリとして:
+
+```bash
+go get github.com/ichijohodaka/symmatinv
+```
+
+コマンドとして:
+
+```bash
+go install github.com/ichijohodaka/symmatinv/cmd/symmatinv@latest
+```
 
 ## 用語
 

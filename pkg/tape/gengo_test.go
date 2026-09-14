@@ -120,7 +120,9 @@ func TestGenGoCompilesAndRuns(t *testing.T) {
 			t.Fatal(err)
 		}
 	}
-	write("go.mod", "module gentest\n\ngo 1.25\n")
+	// このリポジトリの go.mod と同じ版にしておく。ここだけ新しくすると、
+	// 古い Go を使っている人がテストを走らせたときにここだけ失敗する。
+	write("go.mod", "module gentest\n\ngo 1.22\n")
 	write("inv2.go", gen.String())
 	write("main.go", `package main
 
