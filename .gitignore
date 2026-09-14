@@ -1,0 +1,7 @@
+# ビルド成果物
+/symmatinv
+/symmatinv.exe
+*.exe
+
+# 生成物の置き場（テスト用の一時出力）
+/out/

@@ -1,0 +1,4 @@
+# 改行は全プラットフォームで LF に揃える。
+# gofmt は CRLF を「整形が必要」と報告するため、Windows で clone しても
+# そのまま go test / gofmt が通るようにしておく。
+* text=auto eol=lf
